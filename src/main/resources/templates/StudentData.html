@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h3>STUDENT DATA</h3>
+<table border="1">
+<tr>
+       <td>ID</td>
+       <td>USERNAME</td>
+        <td>PASSWORD</td>
+       <td>NAME</td>
+       <td>AGE</td>
+       <td>FEE</td>
+       <td>OPERATIONS</td>
+       </tr>
+  <tr th:each="ob:${list}">
+       <td th:text="${ob.id}"></td>
+       <td th:text="${ob.username}"></td>
+       <td th:text="${ob.password}"></td>
+       <td th:text="${ob.stdName}"></td>
+       <td th:text="${ob.stdAge}"></td>
+       <td th:text="${ob.stdFee}"></td>
+         <td>
+            <a th:href="@{/student/delete?id={data}(data=${ob.id})}">DELETE</a>|
+            <a th:href="@{/student/edit?id={data}(data=${ob.id})}">EDIT</a>
+            
+       </td>
+   </tr>
+</table>
+<span th:text="${message}"></span>
+</body>
+</html>
